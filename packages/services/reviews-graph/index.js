@@ -1,5 +1,5 @@
 import { ApolloServer } from '@apollo/server';
-import { buildSubgraphSchema } from '@apollo/federation';
+import { buildSubgraphSchema } from '@apollo/subgraph';
 import { gql } from 'graphql-tag';
 import { readFileSync } from 'node:fs';
 import { startStandaloneServer } from '@apollo/server/standalone';
@@ -17,8 +17,10 @@ const resolvers = {
     reviews: () => data,
   },
   Product: {
-    reviews(content) {
-      return reviews.filter((review) => review.product.id === content.id);
+    reviews(product) {
+      return data.filter(
+        (review) => review.product.id.toString() === product.id
+      );
     },
   },
 };

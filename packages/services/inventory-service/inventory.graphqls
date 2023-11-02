@@ -1,0 +1,8 @@
+type Query {
+  inventory: [Inventory!]!
+}
+
+type Inventory {
+  id: ID!
+  onHand: Int!
+}

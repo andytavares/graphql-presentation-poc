@@ -4,7 +4,7 @@ type Query {
 
 extend type Review @key(fields: "id") {
   id: ID! @external
-  products: [Product]
+  product: Product!
 }
 
 type Product @key(fields: "id") {
@@ -13,5 +13,4 @@ type Product @key(fields: "id") {
   description: String!
   price: Float!
   inStock: Boolean!
-  reviews: [Review!]!
 }

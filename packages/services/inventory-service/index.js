@@ -4,28 +4,17 @@ import { gql } from 'graphql-tag';
 import { readFileSync } from 'node:fs';
 import { startStandaloneServer } from '@apollo/server/standalone';
 
-import data from './product.data.js';
+import data from './inventory.data.js';
 
 const typeDefs = gql(
-  readFileSync('./packages/services/products-graph/product.graphqls', {
+  readFileSync('./packages/inventory-graph/inventory.graphqls', {
     encoding: 'utf8',
   })
 );
 
 const resolvers = {
   Query: {
-    products: () => data,
-  },
-  Review: {
-    product(review) {
-      return data.filter((product) =>
-        product.reviews.filter((it) => {
-          if (it.id.toString() === review.id) {
-            return it.id.toString() === review.id;
-          }
-        })
-      );
-    },
+    inventory: () => data,
   },
 };
 
@@ -33,6 +22,6 @@ const server = new ApolloServer({
   schema: buildSubgraphSchema({ typeDefs, resolvers }),
 });
 
-const { url } = await startStandaloneServer(server, { listen: { port: 4002 } });
+const { url } = await startStandaloneServer(server, { listen: { port: 4004 } });
 
 console.log(`Server running at: ${url}`);
