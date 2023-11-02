@@ -1,0 +1,11 @@
+type Query {
+  products: [Product!]!
+}
+
+type Product {
+  id: ID!
+  name: String!
+  description: String!
+  price: Float!
+  inStock: Boolean!
+}

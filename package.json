@@ -1,0 +1,27 @@
+{
+  "name": "graphpql-poc",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "type": "module",
+  "scripts": {
+    "start:products": "nodemon ./packages/products-graph/index.js",
+    "start:reviews": "nodemon ./packages/reviews-graph/index.js",
+    "start:inventory": "nodemon ./packages/inventory-service/index.js",
+    "start:acl": "nodemon ./packages/anti-corruption-layer/index.js",
+    "start:s2s": "nodemon ./packages/s2s-graph/index.js"
+  },
+  "dependencies": {
+    "@apollo/federation": "^0.38.1",
+    "@apollo/gateway": "^2.5.6",
+    "@apollo/server": "^4.9.4",
+    "@graphql-tools/graphql-file-loader": "^8.0.0",
+    "@graphql-tools/load": "^8.0.0",
+    "@graphql-tools/load-files": "^7.0.0",
+    "@graphql-tools/merge": "^9.0.0",
+    "graphql": "^16.8.1",
+    "graphql-tag": "^2.12.6",
+    "graphql-yoga": "^5.0.0",
+    "nodemon": "^3.0.1"
+  }
+}
