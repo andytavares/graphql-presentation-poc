@@ -16,6 +16,11 @@ const resolvers = {
   Query: {
     products: () => data,
   },
+  Review: {
+    products(content) {
+      return reviews.filter((review) => review.product.id === content.id);
+    },
+  },
 };
 
 const server = new ApolloServer({

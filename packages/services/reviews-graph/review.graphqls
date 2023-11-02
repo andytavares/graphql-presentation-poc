@@ -7,7 +7,7 @@ extend type Product @key(fields: "id") {
   reviews: [Review]
 }
 
-type Review {
+type Review @key(fields: "id") {
   id: ID!
   review: String!
   rating: Int!
