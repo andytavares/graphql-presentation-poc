@@ -5,10 +5,10 @@
   "license": "MIT",
   "type": "module",
   "scripts": {
-    "start:products": "nodemon ./packages/products-graph/index.js",
-    "start:reviews": "nodemon ./packages/reviews-graph/index.js",
-    "start:inventory": "nodemon ./packages/inventory-service/index.js",
-    "start:acl": "nodemon ./packages/anti-corruption-layer/index.js",
+    "start:products": "nodemon ./packages/services/products-graph/index.js",
+    "start:reviews": "nodemon ./packages/services/reviews-graph/index.js",
+    "start:inventory": "nodemon ./packages/services/inventory-service/index.js",
+    "start:acl": "nodemon ./packages/acl-graph/index.js",
     "start:s2s": "nodemon ./packages/s2s-graph/index.js"
   },
   "dependencies": {
