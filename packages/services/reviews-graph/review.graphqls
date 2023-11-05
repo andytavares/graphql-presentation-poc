@@ -2,11 +2,6 @@ extend type Query {
   reviews: [Review!]!
 }
 
-extend type Product @key(fields: "id") {
-  id: ID! @external
-  reviews: [Review!]!
-}
-
 type Review @key(fields: "id") {
   id: ID!
   review: String!

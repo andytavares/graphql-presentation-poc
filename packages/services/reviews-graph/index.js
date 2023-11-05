@@ -16,11 +16,9 @@ const resolvers = {
   Query: {
     reviews: () => data,
   },
-  Product: {
-    reviews(product) {
-      return data.filter(
-        (review) => review.product.id.toString() === product.id
-      );
+  Review: {
+    __resolveReference(ref) {
+      return data.find((review) => review.id === parseInt(ref.id));
     },
   },
 };

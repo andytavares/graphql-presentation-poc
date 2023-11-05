@@ -5,6 +5,7 @@ import { readFileSync } from 'node:fs';
 import { startStandaloneServer } from '@apollo/server/standalone';
 
 import data from './product.data.js';
+import reviewData from '../reviews-graph/review.data.js';
 
 const typeDefs = gql(
   readFileSync('./packages/services/products-graph/product.graphqls', {
@@ -16,15 +17,12 @@ const resolvers = {
   Query: {
     products: () => data,
   },
-  Review: {
-    product(review) {
-      return data.filter((product) =>
-        product.reviews.filter((it) => {
-          if (it.id.toString() === review.id) {
-            return it.id.toString() === review.id;
-          }
-        })
-      );
+  Product: {
+    reviews(product) {
+      return product.reviews.map((review) => ({
+        __typename: 'Review',
+        id: review.id,
+      }));
     },
   },
 };
