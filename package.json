@@ -5,26 +5,29 @@
   "license": "MIT",
   "type": "module",
   "scripts": {
-    "serve": "concurrently -k \"nodemon ./packages/services/products-graph/index.js\" \"nodemon ./packages/services/reviews-graph/index.js\" \"nodemon ./packages/s2s-graph/index.js\"",
+    "serve": "concurrently -k \"json-server --watch db.json\" \"nodemon ./packages/services/products-graph/index.js\" \"nodemon ./packages/services/reviews-graph/index.js\" \"nodemon ./packages/s2s-graph/index.js\" \"nodemon ./packages/services/inventory-service/index.js\" \"nodemon ./packages/acl-monorepo/packages/acl-graph/index.js\" \"nodemon ./packages/acl-monorepo/packages/inventory-external/index.js\"",
     "start:products": "nodemon ./packages/services/products-graph/index.js",
     "start:reviews": "nodemon ./packages/services/reviews-graph/index.js",
-    "start:inventory": "nodemon ./packages/services/inventory-service/index.js",
+    "start:inventory": "concurrently -k \"json-server --watch db.json\" \"nodemon ./packages/services/inventory-service/index.js\"",
     "start:acl": "nodemon ./packages/acl-graph/index.js",
     "start:s2s": "nodemon ./packages/s2s-graph/index.js",
-    "babel-node": "babel-node --presets='@babel/preset-env' --ignore='foo|bar|baz'"
+    "start:rest": "json-server --watch db.json"
   },
   "dependencies": {
+    "@apollo/client": "^3.8.7",
     "@apollo/gateway": "^2.5.6",
     "@apollo/server": "^4.9.4",
     "@apollo/subgraph": "^2.5.6",
     "graphql": "^16.8.1",
-    "graphql-tag": "^2.12.6"
+    "graphql-tag": "^2.12.6",
+    "node-fetch": "^3.3.2"
   },
   "devDependencies": {
     "@babel/core": "^7.23.2",
     "@babel/node": "^7.22.19",
     "@babel/preset-env": "^7.23.2",
     "concurrently": "^3",
+    "json-server": "^0.15.0",
     "nodemon": "^3.0.1"
   }
 }

@@ -1,0 +1,74 @@
+{
+  "products": [
+    {
+      "id": 1,
+      "name": "Couch",
+      "description": "Just a couch.",
+      "price": 1500.0,
+      "inStock": true,
+      "reviews": [{ "id": 1 }, { "id": 2 }]
+    },
+    {
+      "id": 2,
+      "name": "Table",
+      "description": "Just a table.",
+      "price": 500.0,
+      "inStock": true,
+      "reviews": [{ "id": 3 }]
+    },
+    {
+      "id": 3,
+      "name": "Chair",
+      "description": "Just a chair.",
+      "price": 100.0,
+      "inStock": false,
+      "reviews": [{ "id": 4 }]
+    }
+  ],
+  "inventory": [
+    {
+      "id": 1,
+      "stock": 4,
+      "internalHiddenField": true,
+      "product": [{ "id": 1 }]
+    },
+    {
+      "id": 2,
+      "stock": 1,
+      "internalHiddenField": true,
+      "product": [{ "id": 2 }]
+    },
+    {
+      "id": 3,
+      "stock": 0,
+      "internalHiddenField": true,
+      "product": [{ "id": 3 }]
+    }
+  ],
+  "reviews": [
+    {
+      "id": 1,
+      "review": "it's definitely a couch",
+      "rating": 5,
+      "product": { "id": 1 }
+    },
+    {
+      "id": 2,
+      "review": "yup, it's a couch",
+      "rating": 2,
+      "product": { "id": 1 }
+    },
+    {
+      "id": 3,
+      "review": "my favorite table",
+      "rating": 5,
+      "product": { "id": 2 }
+    },
+    {
+      "id": 4,
+      "review": "really nice chair",
+      "rating": 3,
+      "product": { "id": 3 }
+    }
+  ]
+}

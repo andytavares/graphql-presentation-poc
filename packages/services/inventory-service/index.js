@@ -3,18 +3,21 @@ import { buildSubgraphSchema } from '@apollo/subgraph';
 import { gql } from 'graphql-tag';
 import { readFileSync } from 'node:fs';
 import { startStandaloneServer } from '@apollo/server/standalone';
-
-import data from './inventory.data.js';
+import fetch from 'node-fetch';
 
 const typeDefs = gql(
-  readFileSync('./packages/inventory-graph/inventory.graphqls', {
+  readFileSync('./packages/services/inventory-service/inventory.graphqls', {
     encoding: 'utf8',
   })
 );
 
 const resolvers = {
   Query: {
-    inventory: () => data,
+    inventory: async () => {
+      const res = await fetch('http://localhost:3000/inventory/');
+      const json = await res.json();
+      return json;
+    },
   },
 };
 

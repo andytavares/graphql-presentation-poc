@@ -4,5 +4,6 @@ type Query {
 
 type Inventory {
   id: ID!
-  onHand: Int!
+  stock: Int!
+  internalHiddenField: Boolean!
 }

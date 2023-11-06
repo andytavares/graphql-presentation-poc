@@ -1,0 +1,13 @@
+extend type Query {
+  inventory: [Inventory!]!
+  products: [Product]
+}
+
+extend type Product @key(fields: "id") {
+  id: ID! @external
+}
+
+type Inventory {
+  id: ID!
+  stock: Int!
+}
